@@ -1,5 +1,5 @@
 ---
-import LatinMorphology from './LatinMorphology'
+import GreekMorphology from './GreekMorphology.tsx'
 ---
 
 <div class='min-h-screen bg-gradient-to-br from-slate-50 to-slate-100'>
@@ -21,13 +21,13 @@ import LatinMorphology from './LatinMorphology'
           href='/'
           class='px-4 py-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg font-medium text-sm transition-all duration-200'
         >
-          Latin
+          Morphology
         </a>
         <a
           href='/greek'
           class='px-4 py-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg font-medium text-sm transition-all duration-200'
         >
-          Greek
+          Dictionary
         </a>
         <a
           href='/books'
@@ -49,35 +49,35 @@ import LatinMorphology from './LatinMorphology'
         <h2
           class='text-5xl md:text-6xl font-semibold text-slate-900 mb-4 tracking-tight'
         >
-          Latin Morphology
+          Greek Morphology
         </h2>
         <p
           class='text-xl text-slate-600 font-sans max-w-2xl mx-auto leading-relaxed'
         >
-          Explore the rich vocabulary of Latin. Search for words, discover
-          morphologies, and deepen your understanding of classical languages.
+          Explore the rich vocabulary of ancient greek. Search for words, discover
+          morphologies, and deepen your understanding of the classical language.
         </p>
       </div>
 
       <!-- Search Box -->
-      <LatinMorphology client:load />
+      <GreekMorphology client:load />
 
       <!-- Quick Tips -->
       <div class='mt-6 flex flex-wrap justify-center gap-3 font-sans'>
         <span
           class='px-4 py-2 bg-white/60 backdrop-blur rounded-full text-sm text-slate-600 border border-slate-200'
         >
-          Try: logica
+        Try: λόγος
         </span>
         <span
           class='px-4 py-2 bg-white/60 backdrop-blur rounded-full text-sm text-slate-600 border border-slate-200'
         >
-          Try: veritas
+        Try: Ζεύς
         </span>
         <span
           class='px-4 py-2 bg-white/60 backdrop-blur rounded-full text-sm text-slate-600 border border-slate-200'
         >
-          Try: senatus
+        Try: φιλοσοφία
         </span>
       </div>
     </div>
