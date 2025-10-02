@@ -69,7 +69,7 @@ export default function GreekSearchAndResults() {
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
-            placeholder="Search Greek word (e.g., logos, anēr, or λόγος)..."
+            placeholder="Search Greek word (e.g. ἀνδρός, or ἐποίησεν)..."
             className="w-full px-6 py-4 text-xl rounded-xl border-2 border-transparent focus:border-slate-400 font-serif placeholder-slate-400 bg-transparent"
           />
           <svg
