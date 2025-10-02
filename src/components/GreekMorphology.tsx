@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import { fetchGreekMorphology, type EntryResult } from '../services/morphology'

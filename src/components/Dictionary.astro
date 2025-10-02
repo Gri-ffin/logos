@@ -1,0 +1,72 @@
+---
+import GreekSearchAndResults from "./GreekSearchAndResults.jsx"
+---
+
+<main
+    class='flex flex-col items-center justify-center px-6 py-20 min-h-[calc(100vh-200px)]'
+>
+    <div class='w-full text-center'>
+        <div class='mb-12'>
+            <h2
+                class='text-5xl md:text-6xl font-semibold text-slate-900 mb-4 tracking-tight'
+            >
+                Ancient Greek Dictionary
+            </h2>
+            <p
+                class='text-xl text-slate-600 font-sans max-w-2xl mx-auto leading-relaxed'
+            >
+            Get instant dictionary results for any Ancient Greek word. Enter the exact word form, and we'll retrieve the full <strong>Wiktionary entry</strong> including definitions and declension tables.
+            </p>
+        </div>
+
+        <GreekSearchAndResults client:load />
+
+        <div class='mt-6 flex flex-wrap justify-center gap-3 font-sans'>
+            <span
+                class='px-4 py-2 bg-white/60 backdrop-blur rounded-full text-sm text-slate-600 border border-slate-200'
+            >
+                Try: λόγος (nominative)
+            </span>
+            <span
+                class='px-4 py-2 bg-white/60 backdrop-blur rounded-full text-sm text-slate-600 border border-slate-200'
+            >
+                Try: ἀνδρός (genitive)
+            </span>
+            <span
+                class='px-4 py-2 bg-white/60 backdrop-blur rounded-full text-sm text-slate-600 border border-slate-200'
+            >
+                Try: ἐποίησεν (aorist verb)
+            </span>
+        </div>
+    </div>
+
+    <div class='grid md:grid-cols-3 gap-6 mt-16 font-sans'>
+        <div
+            class='bg-white/70 backdrop-blur p-6 rounded-xl border border-slate-200 hover:border-indigo-300 transition-colors'
+        >
+            <div class='text-2xl mb-3'>📚</div>
+            <h3 class='font-semibold text-slate-900 mb-2'>LSJ Lexicon</h3>
+            <p class='text-sm text-slate-600'>
+                Access the authoritative Liddell-Scott-Jones Greek-English Lexicon.
+            </p>
+        </div>
+        <div
+            class='bg-white/70 backdrop-blur p-6 rounded-xl border border-slate-200 hover:border-indigo-300 transition-colors'
+        >
+            <div class='text-2xl mb-3'>🎓</div>
+            <h3 class='font-semibold text-slate-900 mb-2'>Smart Lookup</h3>
+            <p class='text-sm text-slate-600'>
+                Automatically analyze inflected forms to find the base headword.
+            </p>
+        </div>
+        <div
+            class='bg-white/70 backdrop-blur p-6 rounded-xl border border-slate-200 hover:border-indigo-300 transition-colors'
+        >
+            <div class='text-2xl mb-3'>⚡</div>
+            <h3 class='font-semibold text-slate-900 mb-2'>Server-Side</h3>
+            <p class='text-sm text-slate-600'>
+                Scraping is handled by the server for speed and reliability.
+            </p>
+        </div>
+    </div>
+</main>
