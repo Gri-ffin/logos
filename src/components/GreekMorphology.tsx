@@ -5,7 +5,7 @@ import { fetchGreekMorphology, type EntryResult } from '../services/morphology'
 const InflectionForm = ({ stem, suff }: { stem?: string; suff?: string }) => {
   if (!stem && !suff) return null
   return (
-    <div className="font-serif text-lg font-bold text-slate-900 mb-1">
+    <div className="text-lg font-bold text-slate-900 mb-1">
       {stem} <strong className="text-indigo-600 font-extrabold">{suff}</strong>
     </div>
   )
@@ -64,7 +64,7 @@ export default function GreekMorphology() {
             value={query}
             onChange={e => setQuery(e.target.value)}
             placeholder="Analyze Ancient Greek word (e.g., λόγος, ἀνήρ)..."
-            className="w-full px-6 py-4 text-xl rounded-xl border-2 border-transparent focus:border-slate-400 font-serif placeholder-slate-400 bg-transparent"
+            className="w-full px-6 py-4 text-xl rounded-xl border-2 border-transparent focus:border-slate-400 placeholder-slate-400 bg-transparent"
           />
           <svg
             className="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none"
@@ -86,7 +86,7 @@ export default function GreekMorphology() {
           <div key={idx} className="bg-white/70 rounded-2xl border shadow-xl">
             {/* Header */}
             <div className="p-6 border-b">
-              <h3 className="text-4xl font-extrabold text-slate-900 font-serif mb-4">{entry.headword}</h3>
+              <h3 className="text-4xl font-extrabold text-slate-900 mb-4">{entry.headword}</h3>
               <div className="flex flex-wrap gap-2">
                 {entry.partOfSpeech && <MetadataText label="POS" value={entry.partOfSpeech} />}
                 {entry.declension && <MetadataText label="Declension" value={entry.declension} />}
