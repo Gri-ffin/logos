@@ -1,15 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { fetchGreekMorphology } from '../services/morphology'
 import GreekDictionary from './GreekDictionary'
-
-interface MorphologyEntry {
-  headword: string;
-}
-
-const isGreek = (text: string): boolean => {
-  const greekRegex = /[\u0370-\u03FF\u1F00-\u1FFF]/;
-  return greekRegex.test(text.trim());
-};
 
 export default function GreekSearchAndResults() {
   const [query, setQuery] = useState('')
@@ -26,18 +16,8 @@ export default function GreekSearchAndResults() {
 
       const cleanWord = word.trim();
 
-      if (!isGreek(cleanWord)) {
-        setLemma(cleanWord);
+      setLemma(cleanWord);
 
-      } else {
-        const data: MorphologyEntry[] = await fetchGreekMorphology(cleanWord);
-
-        if (data.length > 0) {
-          setLemma(data[0].headword)
-        } else {
-          setError(`No morphological entry found for "${cleanWord}".`);
-        }
-      }
     } catch (err: any) {
       setError(err.message || 'Error processing lookup.')
       setLemma(null)
@@ -61,15 +41,14 @@ export default function GreekSearchAndResults() {
 
 
   return (
-    <div className="w-full mx-auto">
-      {/* Search Bar (Sticky at the top) */}
-      <div className="sticky top-[78px] z-20 mb-8">
+    <div className="w-full">
+      <div className="sticky top-[78px] z-20 mb-8 mx-auto max-w-4xl px-6 sm:px-0">
         <div className="relative bg-white/95 backdrop-blur-md rounded-xl shadow-lg ring-1 ring-slate-200">
           <input
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
-            placeholder="Search Greek word (e.g. ἀνδρός, or ἐποίησεν)..."
+            placeholder="Search Greek word (e.g., λόγος, ἀνήρ)..."
             className="w-full px-6 py-4 text-xl rounded-xl border-2 border-transparent focus:border-slate-400 font-serif placeholder-slate-400 bg-transparent"
           />
           <svg
@@ -83,26 +62,33 @@ export default function GreekSearchAndResults() {
         </div>
       </div>
 
-      {/* Results and Loading/Error Status */}
-      <div className="space-y-6">
+      <div className="space-y-6 w-full px-6">
         {loading && query.trim() && <p className="text-center py-4 text-lg text-slate-600">Processing lookup...</p>}
 
-        {error && <div className="bg-red-100 text-red-700 p-4 rounded-xl">{error}</div>}
+        {error && <div className="bg-red-100 text-red-700 p-4 rounded-xl mx-auto max-w-4xl">{error}</div>}
 
-        {/* Dictionary Component: Only renders if a lemma (headword) is found */}
         {lemma && (
           <div className="p-6 bg-white/70 rounded-2xl border shadow-xl">
-            {/* GreekDictionary handles the dictionary lookup */}
             <GreekDictionary lemma={lemma} />
 
             <div className="mt-4 pt-4 border-t border-slate-200 text-left">
               <p className="text-sm text-slate-500">
                 Form entered: <strong className="text-slate-800">{query}</strong>
                 <span className="mx-2">|</span>
-                Lookup mode: <strong className="text-indigo-600">{isGreek(query) ? 'Morphology (Greek)' : 'Direct (Latin)'}</strong>
+                <a
+                  href={`https://en.wiktionary.org/wiki/${lemma}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 hover:text-indigo-800 font-semibold underline"
+                >
+                  View Full Wiktionary Entry for {lemma}
+                </a>
               </p>
             </div>
           </div>
+        )}
+        {!lemma && query.trim() && !loading && !error && (
+          <p className="text-center py-4 text-lg text-slate-600">Enter a word to begin the search.</p>
         )}
       </div>
     </div>
