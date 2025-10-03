@@ -1,0 +1,118 @@
+---
+// Pure presentational component for Ancient Greek text
+---
+
+<div class='greek-container'>
+  <slot />
+</div>
+
+<style>
+  .greek-container {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  /* Main text block styling */
+  .greek-container :global(pre) {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino,
+      'Times New Roman', serif;
+    font-size: 1.35rem;
+    line-height: 1.9;
+    color: #1a1a1a;
+    font-weight: 500;
+    background: #ffffff;
+    border: 2px solid #d4c5b9;
+    border-radius: 0.5rem;
+    padding: 2.5rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Optional: Add a subtle decorative corner element */
+  .greek-container :global(pre::before) {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, #8b7355, #d4c5b9, #8b7355);
+  }
+
+  /* Style for any emphasis within the text */
+  .greek-container :global(em) {
+    font-style: italic;
+    color: #1a4d2e;
+  }
+
+  /* Style for strong emphasis */
+  .greek-container :global(strong) {
+    font-weight: 600;
+    color: #1a202c;
+  }
+
+  /* Paragraph spacing if multiple paragraphs */
+  .greek-container :global(p) {
+    margin-bottom: 1.5em;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino,
+      'Times New Roman', serif;
+    font-size: 1.2rem;
+    line-height: 1.85;
+    color: #1a1a1a;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* First letter drop cap styling (optional) */
+  .greek-container :global(p:first-of-type::first-letter) {
+    font-size: 3.5em;
+    line-height: 0.85;
+    float: left;
+    margin: 0.1em 0.1em 0 0;
+    color: #8b7355;
+    font-weight: 600;
+  }
+
+  /* Headings for titles or sections */
+  .greek-container :global(h1),
+  .greek-container :global(h2),
+  .greek-container :global(h3) {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    color: #1a202c;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  .greek-container :global(h1) {
+    font-size: 2rem;
+    border-bottom: 2px solid #d4c5b9;
+    padding-bottom: 0.75rem;
+  }
+
+  .greek-container :global(h2) {
+    font-size: 1.5rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .greek-container {
+      padding: 1.5rem 1rem;
+    }
+
+    .greek-container :global(pre) {
+      font-size: 1.1rem;
+      padding: 1.5rem;
+    }
+
+    .greek-container :global(p) {
+      font-size: 1rem;
+    }
+  }
+</style>

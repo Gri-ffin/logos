@@ -1,0 +1,52 @@
+---
+# Layout and metadata for the page
+layout: ../../layouts/Layout.astro
+title: Homer
+description: The legendary author of the Iliad and the Odyssey.
+
+# Data for the Books List Component
+authorName: Homer
+authorImage: https://upload.wikimedia.org/wikipedia/commons/1/1c/Homer_British_Museum.jpg
+authorSlug: homer
+
+booksData:
+  - title: The Iliad
+    slug: iliad
+    chapters: 24
+  - title: The Odyssey
+    slug: odyssey
+    chapters: 24
+---
+import { Image } from 'astro:assets';
+import BooksList from '../../components/BooksList.astro';
+
+<div class="max-w-4xl mx-auto px-6 py-16">
+    
+    <div class="flex items-start gap-8 border-b border-slate-200 pb-8 mb-8">
+        <Image
+            src={frontmatter.authorImage}
+            alt={`Portrait bust of ${frontmatter.authorName}`}
+            width={160}
+            height={200}
+            class="object-cover rounded-xl shadow-lg ring-4 ring-slate-100 shrink-0"
+        />
+
+        <div>
+            <h1 class="text-6xl font-serif font-extrabold text-slate-900 mb-4 tracking-tighter">
+                {frontmatter.authorName}
+            </h1>
+            <p class="text-xl text-slate-700 leading-relaxed max-w-2xl">
+                Homer is the traditional author of the *Iliad* and the *Odyssey*, two epic poems that are central works of ancient Greek and Western literature. He is regarded as the first and greatest of the Greek epic poets.
+                His works profoundly shaped Western culture, influencing philosophers, dramatists, and artists for thousands of years.
+            </p>
+        </div>
+    </div>
+
+    <BooksList books={frontmatter.booksData} />
+
+    <div class="mt-12 pt-6 border-t border-slate-200">
+        <p class="text-sm text-slate-500">
+            For biographical context, see the <a href="https://en.wikipedia.org/wiki/Homer" class="text-indigo-600 hover:underline">Wikipedia article on Homer</a>.
+        </p>
+    </div>
+</div>
