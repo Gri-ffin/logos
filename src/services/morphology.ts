@@ -18,14 +18,15 @@ export interface EntryResult {
   inflections: Inflection[]
 }
 
-/**
- * Fetch Greek morphological analysis for a given word
- */
-export async function fetchGreekMorphology(word: string): Promise<EntryResult[]> {
+export async function fetchGreekMorphology(
+  word: string
+): Promise<EntryResult[]> {
   const trimmedWord = word.trim()
   if (!trimmedWord) return []
 
-  const url = `https://services.perseids.org/bsp/morphologyservice/analysis/word?lang=grc&engine=morpheusgrc&word=${encodeURIComponent(trimmedWord)}`
+  const url = `https://services.perseids.org/bsp/morphologyservice/analysis/word?lang=grc&engine=morpheusgrc&word=${encodeURIComponent(
+    trimmedWord
+  )}`
   const resp = await fetch(url)
 
   if (!resp.ok) throw new Error(`API returned error ${resp.status}`)

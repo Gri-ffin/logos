@@ -1,7 +1,3 @@
----
-// Pure presentational component for Ancient Greek text
----
-
 <div class='greek-container'>
   <slot />
 </div>
@@ -13,7 +9,6 @@
     padding: 3rem 1.5rem;
   }
 
-  /* Main text block styling */
   .greek-container :global(pre) {
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino,
       'Times New Roman', serif;
@@ -33,7 +28,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Optional: Add a subtle decorative corner element */
   .greek-container :global(pre::before) {
     content: '';
     position: absolute;
@@ -44,19 +38,16 @@
     background: linear-gradient(to right, #8b7355, #d4c5b9, #8b7355);
   }
 
-  /* Style for any emphasis within the text */
   .greek-container :global(em) {
     font-style: italic;
     color: #1a4d2e;
   }
 
-  /* Style for strong emphasis */
   .greek-container :global(strong) {
     font-weight: 600;
     color: #1a202c;
   }
 
-  /* Paragraph spacing if multiple paragraphs */
   .greek-container :global(p) {
     margin-bottom: 1.5em;
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino,
@@ -69,7 +60,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* First letter drop cap styling (optional) */
   .greek-container :global(p:first-of-type::first-letter) {
     font-size: 3.5em;
     line-height: 0.85;
@@ -79,7 +69,6 @@
     font-weight: 600;
   }
 
-  /* Headings for titles or sections */
   .greek-container :global(h1),
   .greek-container :global(h2),
   .greek-container :global(h3) {
@@ -100,7 +89,6 @@
     font-size: 1.5rem;
   }
 
-  /* Responsive adjustments */
   @media (max-width: 768px) {
     .greek-container {
       padding: 1.5rem 1rem;
