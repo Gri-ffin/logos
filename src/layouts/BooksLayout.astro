@@ -1,39 +1,75 @@
 ---
-import '../styles/global.css';
+import '../styles/global.css'
 ---
 
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
     <title>Books | Logos</title>
   </head>
-  <body class="bg-slate-50 text-slate-900 antialiased">
+  <body class='bg-slate-50 text-slate-900 antialiased'>
     <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
-      <div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
-            <span class="text-white font-bold text-lg">Λ</span>
+    <nav
+      class='sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm font-sans'
+    >
+      <div
+        class='max-w-7xl mx-auto px-8 py-4 flex items-center justify-between'
+      >
+        <div class='flex items-center gap-3'>
+          <div
+            class='w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center shadow-md'
+          >
+            <span class='text-white font-bold text-lg'>Λ</span>
           </div>
-          <h1 class="text-2xl font-bold tracking-tight">Logos</h1>
+          <h1 class='text-2xl font-bold tracking-tight'>Logos</h1>
         </div>
-        <div class="flex gap-2 items-center">
-          <a href="/" class="px-4 py-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg font-medium text-sm transition-all">Morphology</a>
-          <a href="/dict" class="px-4 py-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg font-medium text-sm transition-all">Dictionary</a>
-          <a href="/books" class="px-4 py-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg font-medium text-sm transition-all">Books</a>
+
+        <div class='flex gap-2 items-center'>
+          <a
+            href='/'
+            class='px-4 py-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg font-medium text-sm transition-all'
+            >Morphology</a
+          >
+          <a
+            href='/dict'
+            class='px-4 py-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg font-medium text-sm transition-all'
+            >Dictionary</a
+          >
+          <a
+            href='/books'
+            class='px-4 py-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg font-medium text-sm transition-all'
+            >Books</a
+          >
+
+          {/* Ko-fi Button */}
+          <a
+            href='https://ko-fi.com/gri_ffin'
+            target='_blank'
+            rel='noopener noreferrer'
+            class='group inline-flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-slate-900 font-bold rounded-md shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5'
+          >
+            <span class='text-base'>Buy me a coffee</span>
+            <svg
+              class='w-4 h-4 transition-transform group-hover:translate-x-1'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
+            >
+              <path d='M9 5l7 7-7 7'></path>
+            </svg>
+          </a>
         </div>
       </div>
     </nav>
 
     <!-- Books-specific container -->
-    <main class="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
+    <main class='min-h-screen bg-gradient-to-b from-slate-50 to-slate-100'>
       <section>
         <slot />
       </section>
     </main>
   </body>
 </html>
-
