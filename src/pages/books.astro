@@ -1,84 +1,83 @@
 ---
-import { Image } from 'astro:assets';
-import BooksLayout from '../layouts/BooksLayout.astro';
+import { Image } from 'astro:assets'
+import BooksLayout from '../layouts/BooksLayout.astro'
 
 const authors = [
   {
     name: 'Homer',
     slug: 'homer',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Homer_British_Museum.jpg',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/1/1c/Homer_British_Museum.jpg',
     books: [
       { title: 'The Iliad', slug: 'iliad' },
-      { title: 'The Odyssey', slug: 'odyssey' },
-    ],
-  },
-];
+      { title: 'The Odyssey', slug: 'odyssey' }
+    ]
+  }
+]
 ---
 
 <BooksLayout>
-<div class='min-h-screen bg-gradient-to-br from-slate-50 to-slate-100'>
-    <main
-        class='flex flex-col items-center px-6 min-h-[calc(100vh-200px)]'
-    >
+  <div class='min-h-screen bg-gradient-to-br from-slate-50 to-slate-100'>
+    <main class='flex flex-col items-center px-6 min-h-[calc(100vh-200px)]'>
       <div class='w-full text-center'>
         <div class='mb-12 my-10'>
           <h2
-              class='text-3xl md:text-5xl font-semibold text-slate-900 mb-4 tracking-tight'
+            class='text-3xl md:text-5xl font-semibold text-slate-900 mb-4 tracking-tight'
           >
-              Featured Authors & Works 📜
+            Featured Authors & Works 📜
           </h2>
           <p
-              class='text-md md:text-xl text-slate-600 font-sans max-w-2xl mx-auto leading-relaxed'
+            class='text-md md:text-xl text-slate-600 font-sans max-w-2xl mx-auto leading-relaxed'
           >
-              Explore the foundational texts of Ancient Greek literature.
+            Explore the foundational texts of Ancient Greek literature.
           </p>
         </div>
 
-        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {authors.map((author) => (
-            <div
-                class="p-6 bg-white/70 backdrop-blur-md rounded-xl border border-slate-200 shadow-sm text-left font-sans"
-            >
-              <div class="flex items-center gap-6 mb-4">
-                <div class="shrink-0">
-                  <Image
+        <div class='grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
+          {
+            authors.map(author => (
+              <div class='p-6 bg-white/70 backdrop-blur-md rounded-xl border border-slate-200 shadow-sm text-left font-sans'>
+                <div class='flex items-center gap-6 mb-4'>
+                  <div class='shrink-0'>
+                    <Image
                       src={author.image}
                       alt={`Portrait of ${author.name}`}
-                      class="w-20 h-20 object-cover rounded-md ring-2 ring-indigo-200/50" 
+                      class='w-20 h-20 object-cover rounded-md ring-2 ring-indigo-200/50'
                       width={80}
                       height={80}
-                  />
-                </div>
+                    />
+                  </div>
 
-                <div>
-                  <h2 class="text-2xl font-serif font-bold text-slate-900 mb-1">
-                    <a 
-                        href={`/author/${author.slug}`} 
-                        class="hover:text-indigo-600 transition-colors"
-                    >
-                        {author.name}
-                    </a>
-                  </h2>
-                  <p class="text-sm text-slate-600">
-                      The legendary poet of the epics.
-                  </p>
-                </div>
-              </div>
-
-              <div class="mt-4 pt-4 border-t border-slate-200">
-                <h3 class="text-md font-semibold text-slate-800 mb-3">Principal Works:</h3>
-                <div class="flex flex-wrap gap-2">
-                  {author.books.map((book) => (
-                      <p
-                        class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-xs font-medium hover:bg-indigo-100 transition-colors border border-indigo-200"
+                  <div>
+                    <h2 class='text-2xl font-serif font-bold text-slate-900 mb-1'>
+                      <a
+                        href={`/logos/author/${author.slug}`}
+                        class='hover:text-indigo-600 transition-colors'
                       >
-                          {book.title}
+                        {author.name}
+                      </a>
+                    </h2>
+                    <p class='text-sm text-slate-600'>
+                      The legendary poet of the epics.
+                    </p>
+                  </div>
+                </div>
+
+                <div class='mt-4 pt-4 border-t border-slate-200'>
+                  <h3 class='text-md font-semibold text-slate-800 mb-3'>
+                    Principal Works:
+                  </h3>
+                  <div class='flex flex-wrap gap-2'>
+                    {author.books.map(book => (
+                      <p class='px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-xs font-medium hover:bg-indigo-100 transition-colors border border-indigo-200'>
+                        {book.title}
                       </p>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
-          </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </main>
