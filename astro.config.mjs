@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig } from 'astro/config'
 
 import tailwindcss from '@tailwindcss/vite'
@@ -6,7 +5,7 @@ import react from '@astrojs/react'
 
 import mdx from '@astrojs/mdx'
 
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,10 +14,5 @@ export default defineConfig({
   },
 
   integrations: [react(), mdx()],
-  site: 'https://logos.github.io',
-  base: '/logos',
-
-  adapter: node({
-    mode: 'standalone'
-  })
+  adapter: vercel()
 })
